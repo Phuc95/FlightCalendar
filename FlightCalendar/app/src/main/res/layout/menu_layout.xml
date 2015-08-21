@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:gravity="center_horizontal" android:background="@drawable/bg">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="MAIN MENU"
+        android:id="@+id/headertxt"
+        android:layout_alignParentTop="true"
+        android:textStyle="bold"
+        android:textSize="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingLeft="5dp"
+        android:textColor="#ffffffff"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_below="@+id/headertxt"
+        android:layout_height="2dp"
+        android:background="@android:color/white" />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="CALENDAR"
+        android:id="@+id/calenderbt"
+        android:layout_marginTop="67dp"
+        android:height="100dp"
+        android:layout_below="@+id/headertxt"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/border"
+        android:textColor="#ffffff"
+        android:textSize="40dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="CONTACTS"
+        android:height="100dp"
+        android:id="@+id/contactsbt"
+        android:layout_marginTop="67dp"
+        android:layout_below="@+id/calenderbt"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/border"
+        android:textColor="#ffffff"
+        android:textSize="40dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:height="100dp"
+        android:text="  LOGOUT  "
+        android:id="@+id/logoutbt"
+        android:layout_marginTop="67dp"
+        android:layout_below="@+id/contactsbt"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/border"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="20dp"
+        android:textSize="40dp"
+        android:textStyle="bold" />
+
+
+
+
+</RelativeLayout>

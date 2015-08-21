@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:id="@+id/headertxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:gravity="center"
+        android:paddingLeft="5dp"
+        android:text="ABOUT US"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ffffffff"
+        android:textSize="40dp"
+        android:textStyle="bold" />
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_below="@+id/headertxt"
+        android:background="@android:color/white" />
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/view"
+        android:background="#ffffffff">
+        <TableLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:stretchColumns="1"
+            >
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/view"
+                    android:text="   The application support everyone can book and manage flight easy. "
+                    android:textSize="50dp"
+                    android:textStyle="normal|italic"
+                    android:singleLine="false"
+                    android:padding="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Large Text"
+                    android:id="@+id/textView4"
+                    android:layout_column="9" />
+            </TableRow>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView2"
+                android:text="   The application have design by :"
+                android:textSize="50dp"
+                android:textStyle="normal|italic"
+                android:padding="10dp" />
+
+            <TextView
+                android:id="@+id/dp"
+                android:layout_width="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/textView3"
+                android:text="* Bui Duc Phuc"
+                android:textSize="50dp"
+                android:padding="10dp"
+                android:textStyle="normal|bold|italic"
+                android:layout_marginLeft="50dp" />
+            <TextView
+                android:id="@+id/tl"
+                android:layout_width="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/dp"
+                android:text="* Trinh Duc Long"
+                android:textSize="50dp"
+                android:padding="10dp"
+                android:textStyle="normal|bold|italic"
+                android:layout_marginLeft="50dp" />
+            <TextView
+                android:id="@+id/nh"
+                android:layout_width="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/tl"
+                android:text="* Nguyen Hoang Ha"
+                android:textSize="50dp"
+                android:padding="10dp"
+                android:textStyle="normal|bold|italic"
+                android:layout_marginLeft="50dp" />
+            <TextView
+                android:id="@+id/vh"
+                android:layout_width="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/nh"
+                android:text="* Vu Manh Hung"
+                android:textSize="50dp"
+                android:padding="10dp"
+                android:textStyle="normal|bold|italic"
+                android:layout_marginLeft="50dp" />
+            <TextView
+                android:id="@+id/td"
+                android:layout_width="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/vh"
+                android:text="* Tran Van Dat"
+                android:textSize="50dp"
+                android:padding="10dp"
+                android:textStyle="normal|bold|italic"
+                android:layout_marginLeft="50dp" />
+        </TableLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

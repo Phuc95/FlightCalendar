@@ -64,13 +64,23 @@ public class MainActivity extends Activity implements View.OnClickListener {
             String name = txtUser.getText().toString();
             String pass = txtPass.getText().toString();
             db = helper.getReadableDatabase();
-            Cursor cu = db.rawQuery("SELECT * FROM users WHERE _username = ? and _password =?", new String[]{name,pass});
-            if(cu!=null)
-            {
-                Toast.makeText(this, "Login Successfully", Toast.LENGTH_LONG).show();
+            Cursor cu = db.rawQuery("SELECT * FROM users WHERE _username = ?", new String[]{name});
+            if(cu.moveToFirst()){
+                String username = cu.getString(cu.getColumnIndex("_username"));
+                String password = cu.getString(cu.getColumnIndex("_password"));
+                if(username.equals(name)){
+                    if(password.equals(pass)){
+                        Intent intent = new Intent(this, main_menu.class);
+                        startActivity(intent);
+                    }else{
+                        Toast.makeText(this, "Login Failed", Toast.LENGTH_LONG).show();
+                    }
+                }
             }else{
                 Toast.makeText(this, "Login Failed", Toast.LENGTH_LONG).show();
             }
+
+
         }catch(Exception e){
             e.printStackTrace();
         }

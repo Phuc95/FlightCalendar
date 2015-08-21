@@ -2,6 +2,7 @@ package com.example.vumanh.flightcalendar;
 
 import android.app.Activity;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -62,6 +63,8 @@ public class Create extends Activity implements View.OnClickListener {
                     db.insert(DBHelper.TABLE, null, values);
                     db.close();
                     Toast.makeText(this, "Employee Added Successfully", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(this, MainActivity.class);
+                    startActivity(intent);
                 }
                 if (pass == null || repass == null || user == null) {
                     Toast.makeText(this, "No infor to create Account", Toast.LENGTH_LONG).show();

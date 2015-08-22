@@ -7,6 +7,8 @@ import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.DrawerLayout;
@@ -19,10 +21,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 
 
-public class navigation_drawer extends Activity{
+public class navigation_drawer extends Activity implements View.OnClickListener{
 
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
@@ -30,6 +34,14 @@ public class navigation_drawer extends Activity{
     private ListView leftDrawerList;
     private ArrayAdapter<String> navigationDrawerAdapter;
     private String[] leftSliderData = {"Calendar", "Contacts", "About us"};
+
+    String selected_ID = "";
+    ListView listFlight;
+
+    DBHelper helper;
+    SQLiteDatabase db;
+
+    SimpleCursorAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,6 +92,26 @@ public class navigation_drawer extends Activity{
                 }
             }
         });
+
+        helper = new DBHelper(this);
+        listFlight = (ListView) findViewById(R.id.listFlight);
+
+        listFlight.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
+                String name, departure, destination, date, time;
+                Cursor list = (Cursor) adapter.getItemAtPosition(position);
+                selected_ID = list.getString(0);
+                name = list.getString(1);
+                departure = list.getString(2);
+                destination = list.getString(3);
+                date = list.getString(4);
+                time = list.getString(5);
+
+            }
+        });
+
+        fetchData();
     }
 
     private void nitView() {
@@ -140,5 +172,23 @@ public class navigation_drawer extends Activity{
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void fetchData() {
+        db = helper.getReadableDatabase();
+        Cursor c = db.query(DBHelper.TABLE2, null, null, null, null, null, null);
+        adapter = new SimpleCursorAdapter(
+                this,
+                R.layout.flight_row,
+                c,
+                new String[]{DBHelper.F_flightName, DBHelper.F_departDate},
+                new int[]{R.id.flightName, R.id.flightDate});
+
+        listFlight.setAdapter(adapter);
+    }
+
+    @Override
+    public void onClick(View view) {
+
     }
 }

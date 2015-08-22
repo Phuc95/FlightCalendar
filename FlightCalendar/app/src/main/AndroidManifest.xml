@@ -33,6 +33,14 @@
             android:name=".navigation_drawer"
             android:label="@string/title_activity_navigation_drawer" >
         </activity>
+        <activity
+            android:name=".add_calendat"
+            android:label="@string/title_activity_add_calendat" >
+        </activity>
+        <activity
+            android:name=".add_calendar"
+            android:label="@string/title_activity_add_calendar" >
+        </activity>
     </application>
 
 </manifest>

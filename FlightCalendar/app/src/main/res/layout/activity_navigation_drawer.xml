@@ -13,6 +13,7 @@
 
         <!-- activity view -->
         <FrameLayout
+            xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/main_content"
             android:layout_width="match_parent"
             android:background="#fff"
@@ -25,6 +26,19 @@
                 android:textColor="#000"
                 android:text="Activity Content"
                 android:layout_height="match_parent" />
+
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/addCalendarButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|bottom"
+                app:backgroundTint="#ed1b24"
+                app:borderWidth="0px"
+                app:elevation="6px"
+                android:src="@android:drawable/ic_input_add"
+                android:layout_margin="16dp"
+                android:clickable="true"/>
+
         </FrameLayout>
 
         <!-- navigation drawer -->

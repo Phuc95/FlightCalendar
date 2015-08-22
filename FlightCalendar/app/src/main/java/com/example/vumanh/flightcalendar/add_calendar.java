@@ -1,6 +1,8 @@
 package com.example.vumanh.flightcalendar;
 
 import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,13 +12,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 
-public class add_calendar extends Activity implements View.OnClickListener{
+public class add_calendar extends Activity implements View.OnClickListener, TimePickerDialog.OnTimeSetListener, DatePickerDialog.OnDateSetListener{
 
     EditText txtName, txtDeparture, txtDestination;
     TextView txtDate, txtTime;
@@ -45,11 +49,27 @@ public class add_calendar extends Activity implements View.OnClickListener{
         btnCreate.setOnClickListener(this);
         btnCancel.setOnClickListener(this);
 
-        Button cancelButton = (Button) findViewById(R.id.cancel_button_add);
+        Button cancelButton = (Button) findViewById(R.id.btnCancel);
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 onBackPressed();
+            }
+        });
+
+        txtDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatePickerFragment datePicker = new DatePickerFragment();
+                datePicker.show(getFragmentManager(), "datePicker");
+            }
+        });
+
+        txtTime.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                TimePickerFragment timePicker = new TimePickerFragment();
+                timePicker.show(getFragmentManager(), "timePicker");
             }
         });
 
@@ -95,9 +115,8 @@ public class add_calendar extends Activity implements View.OnClickListener{
                 clearFields();
                 Toast.makeText(this, "Flight Added Successfully", Toast.LENGTH_LONG).show();
 
-                Intent intent = new Intent(this, MainActivity.class);
+                Intent intent = new Intent(this, navigation_drawer.class);
                 startActivity(intent);
-
             }catch(Exception e){
                 e.printStackTrace();
             }
@@ -108,5 +127,20 @@ public class add_calendar extends Activity implements View.OnClickListener{
         txtName.setText("");
         txtDeparture.setText("");
         txtDestination.setText("");
+    }
+
+    @Override
+    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+        String setYear = String.valueOf(i);
+        String setMonth = String.valueOf(i1 + 1);
+        String setDay = String.valueOf(i2);
+        txtDate.setText(setDay + "/" + setMonth + "/" + setYear);
+    }
+
+    @Override
+    public void onTimeSet(TimePicker timePicker, int i, int i1) {
+        String setHour = String.valueOf(i);
+        String setMinute = String.valueOf(i1);
+        txtTime.setText(setHour + ":" + setMinute);
     }
 }

@@ -41,6 +41,14 @@
             android:name=".add_calendar"
             android:label="@string/title_activity_add_calendar" >
         </activity>
+        <activity
+            android:name=".contact_page"
+            android:label="@string/title_activity_contact_page" >
+        </activity>
+        <activity
+            android:name=".add_contact"
+            android:label="@string/title_activity_add_contact" >
+        </activity>
     </application>
 
 </manifest>

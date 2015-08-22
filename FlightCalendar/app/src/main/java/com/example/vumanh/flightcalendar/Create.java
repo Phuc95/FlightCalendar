@@ -74,6 +74,10 @@ public class Create extends Activity implements View.OnClickListener {
                     wrongPass();
                 }
             }
+
+            if(v == btnCancel){
+                onBackPressed();
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

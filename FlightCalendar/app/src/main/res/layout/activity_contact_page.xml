@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.vumanh.flightcalendar.navigation_drawer">
+    tools:context="com.example.vumanh.flightcalendar.contact_page">
 
     <include layout="@layout/toolbar"/>
 
@@ -24,11 +24,11 @@
                 android:gravity="center"
                 android:layout_width="match_parent"
                 android:textColor="#000"
-                android:text="This is flight page"
+                android:text="This is contact page"
                 android:layout_height="match_parent" />
 
             <android.support.design.widget.FloatingActionButton
-                android:id="@+id/addCalendarButton"
+                android:id="@+id/addContactButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right|bottom"

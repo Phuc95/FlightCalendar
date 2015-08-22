@@ -19,6 +19,22 @@ public class main_menu extends Activity {
 
         Button calendarButton = (Button) findViewById(R.id.calenderbt);
         Button contactButton = (Button) findViewById(R.id.contactsbt);
+        Button logoutButton = (Button) findViewById(R.id.logoutbt);
+
+        contactButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(main_menu.this, contact_page.class);
+                startActivity(intent);
+            }
+        });
+
+        logoutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
 
         calendarButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -2,12 +2,9 @@ package com.example.vumanh.flightcalendar;
 
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.net.Uri;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -22,7 +19,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
-public class navigation_drawer extends Activity{
+public class contact_page extends Activity {
 
     private Toolbar toolbar;
     private DrawerLayout drawerLayout;
@@ -34,20 +31,20 @@ public class navigation_drawer extends Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_navigation_drawer);
+        setContentView(R.layout.activity_contact_page);
 
         nitView();
         if (toolbar != null) {
-            toolbar.setTitle("Flight calendar");
+            toolbar.setTitle("Contacts");
         }
         initDrawer();
 
-        FloatingActionButton addCalendar = (FloatingActionButton) findViewById(R.id.addCalendarButton);
+        FloatingActionButton addCalendar = (FloatingActionButton) findViewById(R.id.addContactButton);
 
         addCalendar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(navigation_drawer.this, add_calendar.class);
+                Intent intent = new Intent(contact_page.this, add_contact.class);
                 startActivity(intent);
             }
         });
@@ -56,17 +53,17 @@ public class navigation_drawer extends Activity{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if (position == 0) {
+                    Intent intent = new Intent(contact_page.this, navigation_drawer.class);
+                    startActivity(intent);
                     leftDrawerList.setItemChecked(position, true);
                     drawerLayout.closeDrawers();
                 } else if (position == 1) {
-                    Intent intent = new Intent(navigation_drawer.this, contact_page.class);
-                    startActivity(intent);
                     leftDrawerList.setItemChecked(position, true);
                     drawerLayout.closeDrawers();
                 } else if (position == 2) {
                     leftDrawerList.setItemChecked(position, true);
                     drawerLayout.closeDrawers();
-                    AlertDialog.Builder builder = new AlertDialog.Builder(navigation_drawer.this);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(contact_page.this);
                     builder.setTitle("About us");
                     builder.setMessage("Nguyen Hoang Ha \nBui Duc Phuc \nVu Manh Hung \nTrinh Duc Long \nTran Van Dat\n\nCopyright 2015. All right reserved");
                     builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -86,7 +83,7 @@ public class navigation_drawer extends Activity{
         leftDrawerList = (ListView) findViewById(R.id.left_drawer);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayout);
-        navigationDrawerAdapter=new ArrayAdapter<String>( navigation_drawer.this, android.R.layout.simple_list_item_1, leftSliderData);
+        navigationDrawerAdapter=new ArrayAdapter<String>(contact_page.this, android.R.layout.simple_list_item_1, leftSliderData);
         leftDrawerList.setAdapter(navigationDrawerAdapter);
     }
 
@@ -124,6 +121,7 @@ public class navigation_drawer extends Activity{
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_contact_page, menu);
         return true;
     }
 
